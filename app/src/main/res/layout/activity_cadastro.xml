@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"> <!-- 1. Essa linha diz ao ScrollView para preencher a tela toda -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:gravity="center_vertical"> <!-- 2. Essa linha centraliza todo o bloco de campos na vertical -->
+
+        <!-- Título da Tela -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Criar Conta"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="32dp" />
+
+        <!-- LABEL e CAMPO: Nome -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nome completo:"
+            android:textStyle="bold"
+            android:textSize="16sp" />
+        <EditText
+            android:id="@+id/input_nome"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:inputType="textPersonName"
+            android:layout_marginBottom="16dp" />
+
+        <!-- LABEL e CAMPO: E-mail -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="E-mail:"
+            android:textStyle="bold"
+            android:textSize="16sp" />
+        <EditText
+            android:id="@+id/input_email_cadastro"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:inputType="textEmailAddress"
+            android:layout_marginBottom="16dp" />
+
+        <!-- LABEL e CAMPO: Senha -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Senha:"
+            android:textStyle="bold"
+            android:textSize="16sp" />
+        <EditText
+            android:id="@+id/input_senha_cadastro"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:inputType="textPassword"
+            android:layout_marginBottom="16dp" />
+
+        <!-- LABEL e CAMPO: Confirmar Senha -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Confirmar Senha:"
+            android:textStyle="bold"
+            android:textSize="16sp" />
+        <EditText
+            android:id="@+id/input_confirmar_senha"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:inputType="textPassword"
+            android:layout_marginBottom="32dp" />
+
+        <!-- Botão de Cadastrar -->
+        <Button
+            android:id="@+id/btn_realizar_cadastro"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="Cadastrar"
+            android:textSize="16sp"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Botão Voltar -->
+        <Button
+            android:id="@+id/btn_ja_tenho_conta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Já possuo uma conta"
+            android:background="#00000000"
+            android:textColor="#555555" />
+
+    </LinearLayout>
+</ScrollView>
