@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:background="#F5F5F5">
+
+    <!-- Barra Superior Fixa -->
+    <TextView
+        android:id="@+id/titulo_perfil"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Meu Perfil"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:padding="16dp"
+        android:background="#FFFFFF"
+        android:elevation="4dp" />
+
+    <!-- Área Rolável (Perfil + Lista) -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/titulo_perfil"
+        android:layout_above="@+id/menu_inferior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- CABEÇALHO DO PERFIL -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="#FFFFFF"
+                android:padding="24dp"
+                android:gravity="center_vertical"
+                android:elevation="2dp"
+                android:layout_marginBottom="16dp">
+
+                <!-- Placeholder para Foto de Perfil -->
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:background="@android:drawable/ic_menu_myplaces"
+                    android:backgroundTint="#BDBDBD"
+                    android:layout_marginEnd="16dp"/>
+
+                <!-- Informações do Usuário -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Elisson Victor"
+                        android:textSize="22sp"
+                        android:textStyle="bold"
+                        android:textColor="#212121"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="3 avaliações publicadas"
+                        android:textSize="14sp"
+                        android:textColor="#FF9800"
+                        android:textStyle="bold"
+                        android:layout_marginTop="4dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Membro desde 2026"
+                        android:textSize="12sp"
+                        android:textColor="#757575"
+                        android:layout_marginTop="2dp"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- TÍTULO DA LISTA -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Minhas Publicações"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:layout_marginBottom="8dp"/>
+
+            <!-- LISTA DE AVALIAÇÕES (Reaproveitando as suas!) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <!-- Mock 1 -->
+                <LinearLayout
+                    android:id="@+id/card_ama_brownie"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="#FFFFFF"
+                    android:padding="16dp"
+                    android:layout_marginBottom="16dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Ama Brownie" android:textStyle="bold" android:textSize="18sp"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="⭐ 5.0" android:textSize="14sp" android:textColor="#FF9800" android:layout_marginBottom="4dp"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text='"Atendimento impecável e os melhores doces da cidade. Recomendo muito!"' android:textSize="14sp" android:textStyle="italic" android:textColor="#666666"/>
+                </LinearLayout>
+
+                <!-- Mock 2 -->
+                <LinearLayout
+                    android:id="@+id/card_lanchonete"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="#FFFFFF"
+                    android:padding="16dp"
+                    android:layout_marginBottom="16dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Lanchonete da UNIFOR" android:textStyle="bold" android:textSize="18sp"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="⭐ 3.5" android:textSize="14sp" android:textColor="#FF9800" android:layout_marginBottom="4dp"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text='"Ótimo para quebrar um galho entre as aulas, mas achei o salgado um pouco caro."' android:textSize="14sp" android:textStyle="italic" android:textColor="#666666"/>
+                </LinearLayout>
+
+                <!-- Mock 3 -->
+                <LinearLayout
+                    android:id="@+id/card_fondue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="#FFFFFF"
+                    android:padding="16dp"
+                    android:layout_marginBottom="16dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Fondue em Guaramiranga" android:textStyle="bold" android:textSize="18sp"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="⭐ 4.8" android:textSize="14sp" android:textColor="#FF9800" android:layout_marginBottom="4dp"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text='"Clima perfeito, comida maravilhosa. Só a fila de espera que estava um pouco longa."' android:textSize="14sp" android:textStyle="italic" android:textColor="#666666"/>
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- O Menu Inferior -->
+    <LinearLayout
+        android:id="@+id/menu_inferior"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:background="#FFFFFF"
+        android:elevation="8dp">
+
+        <Button android:id="@+id/btn_menu_inicio" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="Início" android:background="#00000000" android:textColor="#333333" />
+        <Button android:id="@+id/btn_menu_add" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="+" android:textSize="24sp" android:textStyle="bold" android:background="#00000000" android:textColor="#333333" />
+
+        <!-- Mudei o texto do botão para "Meu Perfil" -->
+        <Button android:id="@+id/btn_menu_analises" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="Meu Perfil" android:background="#00000000" android:textColor="#2196F3" android:textSize="12sp" />
+    </LinearLayout>
+</RelativeLayout>

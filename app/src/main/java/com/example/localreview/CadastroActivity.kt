@@ -13,24 +13,22 @@ class CadastroActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cadastro)
 
-        // 1. Encontrando os campos simples de texto (EditText)
         val inputNome = findViewById<EditText>(R.id.input_nome)
         val inputEmail = findViewById<EditText>(R.id.input_email_cadastro)
         val inputSenha = findViewById<EditText>(R.id.input_senha_cadastro)
         val inputConfirmarSenha = findViewById<EditText>(R.id.input_confirmar_senha)
 
-        // 2. Encontrando os botões
         val btnCadastrar = findViewById<Button>(R.id.btn_realizar_cadastro)
         val btnJaTenhoConta = findViewById<Button>(R.id.btn_ja_tenho_conta)
 
-        // Ação: Ir para Login se já tem conta
+        // Ir para Login se já tem conta
         btnJaTenhoConta.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
             finish()
         }
 
-        // Ação: Botão Cadastrar
+        // Botão Cadastrar
         btnCadastrar.setOnClickListener {
             val nome = inputNome.text.toString().trim()
             val email = inputEmail.text.toString().trim()

@@ -12,7 +12,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LocalReview">
         <activity
-            android:name=".SelecaoPerfilActivity"
+            android:name=".MinhaAnaliseDetalheActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DetalhesLocalActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CreateAnalysisActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MinhasAnalisesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".HomeUsuarioActivity"
             android:exported="false" />
         <activity
             android:name=".RecuperacaoActivity"

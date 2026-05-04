@@ -13,24 +13,24 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        // 1. Mapeando os elementos do XML
         val inputEmail = findViewById<EditText>(R.id.input_email)
         val inputSenha = findViewById<EditText>(R.id.input_senha)
         val btnEsqueciSenha = findViewById<Button>(R.id.btn_esqueci_senha)
         val btnFazerLogin = findViewById<Button>(R.id.btn_fazer_login)
 
-        // 2. Ação do botão "Esqueci minha senha"
+        // "Esqueci minha senha"
         btnEsqueciSenha.setOnClickListener {
             val intent = Intent(this, RecuperacaoActivity::class.java)
             startActivity(intent)
         }
 
-        // 3. Ação do botão "Entrar"
+        // Ação do botão "Entrar"
+// 3. Ação do botão "Entrar"
         btnFazerLogin.setOnClickListener {
             val emailDigitado = inputEmail.text.toString().trim()
             val senhaDigitada = inputSenha.text.toString()
 
-            // Validação para evitar que os campos fiquem vazios
+            // Validação visual nos campos
             if (emailDigitado.isEmpty()) {
                 inputEmail.error = "Preencha o e-mail"
                 return@setOnClickListener
@@ -41,19 +41,26 @@ class LoginActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            // 4. Lógica de Autenticação Mockada
-            if (emailDigitado == "narak@unifor.br" && senhaDigitada == "123") {
-                // Sucesso! Mostra um aviso rápido e vai para a Seleção de Perfil
-                Toast.makeText(this, "Login realizado com sucesso!", Toast.LENGTH_SHORT).show()
+            // --- LÓGICA DE AUTENTICAÇÃO DIRETA ---
 
-                val intent = Intent(this, SelecaoPerfilActivity::class.java)
+            // 1. Rota do Usuário Comum
+            if (emailDigitado == "teste" && senhaDigitada == "123") {
+                Toast.makeText(this, "Bem-vindo!", Toast.LENGTH_SHORT).show()
+                val intent = Intent(this, HomeUsuarioActivity::class.java)
                 startActivity(intent)
+                finish() // Impede de voltar pra tela de login apertando o botão "Voltar"
+            }
+            // 2. Rota do Administrador
+            else if (emailDigitado == "narak@unifor.br" && senhaDigitada == "123") {
+                Toast.makeText(this, "Bem-vindo, Admin! (Tela em construção)", Toast.LENGTH_SHORT).show()
 
-                // Opcional: Adicionamos o finish() para que, se o usuário apertar
-                // o botão de "Voltar" no celular, ele não caia de volta na tela de login.
-                finish()
-            } else {
-                // Falha! Credenciais erradas
+                // DEIXANDO PRONTO PARA O FUTURO:
+                // val intent = Intent(this, HomeAdminActivity::class.java)
+                // startActivity(intent)
+                // finish()
+            }
+            // 3. Credenciais Incorretas
+            else {
                 Toast.makeText(this, "E-mail ou senha incorretos.", Toast.LENGTH_SHORT).show()
             }
         }
