@@ -1,37 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
-    android:padding="32dp">
+    android:background="#F5F5F5"
+    android:fitsSystemWindows="true">
 
-    <!-- Título opcional da tela -->
-    <TextView
+    <!-- Bloco Centralizador (Branding + Botões) -->
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Página Inicial"
-        android:textSize="28sp"
-        android:textStyle="bold"
-        android:layout_marginBottom="48dp" />
+        android:orientation="vertical"
+        android:gravity="center"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintVertical_bias="0.45">
 
-    <!-- Botão Principal: Entrar -->
-    <Button
-        android:id="@+id/btn_entrar"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:text="Entrar"
-        android:textSize="16sp"
-        android:layout_marginBottom="16dp" />
+        <!-- Logo -->
+        <View
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:background="@android:drawable/ic_menu_myplaces"
+            android:backgroundTint="#2196F3"
+            android:layout_marginBottom="16dp" />
 
-    <!-- Botão Secundário: Não possuo conta -->
-    <Button
-        android:id="@+id/btn_cadastrar"
-        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:text="Não possuo conta"
-        android:textSize="16sp" />
+        <!-- Título -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="LocalReview"
+            android:textSize="32sp"
+            android:fontFamily="sans-serif-black"
+            android:textColor="#212121" />
 
-</LinearLayout>
+        <!-- Slogan -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sua cidade, sua voz."
+            android:textSize="15sp"
+            android:textColor="#757575"
+            android:letterSpacing="0.1"
+            android:layout_marginBottom="40dp" />
+
+        <!-- ÁREA DE BOTÕES: Agora mais compacta e próxima ao slogan -->
+        <LinearLayout
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btn_entrar"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:text="Login"
+                android:textAllCaps="false"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:backgroundTint="#2196F3"
+                android:elevation="2dp"
+                android:layout_marginBottom="12dp" />
+
+            <Button
+                android:id="@+id/btn_cadastrar"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:text="Criar nova conta"
+                android:textAllCaps="false"
+                android:textSize="15sp"
+                android:textColor="#2196F3" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

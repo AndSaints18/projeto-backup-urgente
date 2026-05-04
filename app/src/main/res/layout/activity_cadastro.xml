@@ -85,6 +85,7 @@
             android:layout_height="60dp"
             android:text="Cadastrar"
             android:textSize="16sp"
+            android:backgroundTint="#2196F3"
             android:layout_marginBottom="8dp" />
 
         <!-- Botão Voltar -->

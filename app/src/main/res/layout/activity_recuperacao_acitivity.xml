@@ -47,6 +47,7 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:text="Enviar"
+        android:backgroundTint="#2196F3"
         android:textSize="16sp" />
 
 </LinearLayout>
