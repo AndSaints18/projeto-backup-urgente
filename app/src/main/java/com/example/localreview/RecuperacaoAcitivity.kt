@@ -31,7 +31,7 @@ class RecuperacaoActivity : AppCompatActivity() {
             Toast.makeText(this, "Instruções de recuperação enviadas para $email", Toast.LENGTH_LONG).show()
 
             // Redireciona de volta para a MainActivity
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, Recuperacao2Activity::class.java)
 
             // Adiciona flags para evitar que a MainActivity seja duplicada na memória do celular
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP

@@ -7,20 +7,22 @@
     android:fitsSystemWindows="true"
     android:background="#F8F9FA">
 
-    <!-- Cabeçalho Estilizado conforme RNF02 -->
     <LinearLayout
         android:id="@+id/header_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:background="#FFFFFF"
-        android:padding="20dp"
+        android:paddingTop="20dp"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:paddingBottom="12dp"
         android:elevation="4dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Descobrir"
+            android:text="Olá, Usuario"
             android:textSize="12sp"
             android:textColor="#2196F3"
             android:textStyle="bold"
@@ -31,13 +33,174 @@
             android:id="@+id/titulo_home"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Locais Próximos"
+            android:text="O que conhecer hoje?"
             android:textSize="28sp"
             android:textStyle="bold"
-            android:textColor="#212121" />
+            android:textColor="#212121"
+            android:layout_marginBottom="16dp"/>
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="none"
+            android:clipToPadding="false"
+            android:paddingEnd="20dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/chip_todos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    app:cardCornerRadius="16dp"
+                    app:cardBackgroundColor="#212121"
+                    app:cardElevation="0dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground">
+                    <TextView
+                        android:id="@+id/tv_chip_todos"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Todos"
+                        android:textColor="#FFFFFF"
+                        android:textStyle="bold"
+                        android:paddingHorizontal="16dp"
+                        android:paddingVertical="8dp"/>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/chip_doces"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    app:cardCornerRadius="16dp"
+                    app:cardBackgroundColor="#F1F3F5"
+                    app:cardElevation="0dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground">
+                    <TextView
+                        android:id="@+id/tv_chip_doces"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🍰 Doces"
+                        android:textColor="#495057"
+                        android:paddingHorizontal="16dp"
+                        android:paddingVertical="8dp"/>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/chip_lanches"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    app:cardCornerRadius="16dp"
+                    app:cardBackgroundColor="#F1F3F5"
+                    app:cardElevation="0dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground">
+                    <TextView
+                        android:id="@+id/tv_chip_lanches"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🍔 Lanches"
+                        android:textColor="#495057"
+                        android:paddingHorizontal="16dp"
+                        android:paddingVertical="8dp"/>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/chip_bares"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    app:cardCornerRadius="16dp"
+                    app:cardBackgroundColor="#F1F3F5"
+                    app:cardElevation="0dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground">
+                    <TextView
+                        android:id="@+id/tv_chip_bares"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🍻 Bares"
+                        android:textColor="#495057"
+                        android:paddingHorizontal="16dp"
+                        android:paddingVertical="8dp"/>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/chip_pizzarias"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    app:cardCornerRadius="16dp"
+                    app:cardBackgroundColor="#F1F3F5"
+                    app:cardElevation="0dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground">
+                    <TextView
+                        android:id="@+id/tv_chip_pizzarias"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🍕 Pizzarias"
+                        android:textColor="#495057"
+                        android:paddingHorizontal="16dp"
+                        android:paddingVertical="8dp"/>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/chip_cafes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    app:cardCornerRadius="16dp"
+                    app:cardBackgroundColor="#F1F3F5"
+                    app:cardElevation="0dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground">
+                    <TextView
+                        android:id="@+id/tv_chip_cafes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="☕ Cafés"
+                        android:textColor="#495057"
+                        android:paddingHorizontal="16dp"
+                        android:paddingVertical="8dp"/>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/chip_experiencias"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="16dp"
+                    app:cardBackgroundColor="#F1F3F5"
+                    app:cardElevation="0dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground">
+                    <TextView
+                        android:id="@+id/tv_chip_experiencias"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🍷 Experiências"
+                        android:textColor="#495057"
+                        android:paddingHorizontal="16dp"
+                        android:paddingVertical="8dp"/>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+        </HorizontalScrollView>
     </LinearLayout>
 
-    <!-- Lista de Locais (ScrollView com Padding para respiro visual) -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -51,152 +214,68 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <!-- Card 1: Bar do Zé (RF06) -->
             <androidx.cardview.widget.CardView
-                android:id="@+id/card_bar_do_ze"
+                android:id="@+id/card_ama_brownie"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
                 app:cardCornerRadius="12dp"
-                app:cardElevation="2dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="12dp">
-
-                    <View
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        android:background="#E9ECEF" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_marginStart="16dp">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Bar do Zé"
-                            android:textStyle="bold"
-                            android:textSize="18sp"
-                            android:textColor="#212121"/>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Buteco • Espetinho"
-                            android:textSize="12sp"
-                            android:textColor="#6C757D"/>
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:layout_marginTop="4dp">
-                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="⭐ 4.8" android:textStyle="bold" android:textColor="#FF9800"/>
-                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text=" • 1.2 km" android:textColor="#ADB5BD"/>
+                app:cardElevation="2dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackground">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:padding="12dp">
+                    <View android:layout_width="80dp" android:layout_height="80dp" android:background="#E9ECEF" />
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:layout_marginStart="16dp">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Ama Brownie" android:textStyle="bold" android:textSize="18sp" android:textColor="#212121"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Doceria • Artesanal" android:textSize="12sp" android:textColor="#6C757D"/>
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginTop="4dp">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="⭐ 5.0" android:textStyle="bold" android:textColor="#FF9800"/>
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text=" • 4.1 km" android:textColor="#ADB5BD"/>
                         </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- Card 2: Espetinho do João -->
             <androidx.cardview.widget.CardView
-                android:id="@+id/card_espetinho_joao"
+                android:id="@+id/card_lanchonete_unifor"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
                 app:cardCornerRadius="12dp"
-                app:cardElevation="2dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="12dp">
-
-                    <View
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        android:background="#E9ECEF" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_marginStart="16dp">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Espetinho do João"
-                            android:textStyle="bold"
-                            android:textSize="18sp"
-                            android:textColor="#212121"/>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Comida de Rua"
-                            android:textSize="12sp"
-                            android:textColor="#6C757D"/>
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:layout_marginTop="4dp">
-                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="⭐ 4.5" android:textStyle="bold" android:textColor="#FF9800"/>
-                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text=" • 2.5 km" android:textColor="#ADB5BD"/>
+                app:cardElevation="2dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackground">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:padding="12dp">
+                    <View android:layout_width="80dp" android:layout_height="80dp" android:background="#E9ECEF" />
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:layout_marginStart="16dp">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Lanchonete da UNIFOR" android:textStyle="bold" android:textSize="18sp" android:textColor="#212121"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Salgados • Universitário" android:textSize="12sp" android:textColor="#6C757D"/>
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginTop="4dp">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="⭐ 3.5" android:textStyle="bold" android:textColor="#FF9800"/>
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text=" • 0.2 km" android:textColor="#ADB5BD"/>
                         </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- Card 3: Boteco Central (O que estava faltando!) -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/card_boteco_central"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="32dp"
+                android:layout_marginBottom="16dp"
                 app:cardCornerRadius="12dp"
-                app:cardElevation="2dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="12dp">
-
-                    <View
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        android:background="#E9ECEF" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_marginStart="16dp">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Boteco Central"
-                            android:textStyle="bold"
-                            android:textSize="18sp"
-                            android:textColor="#212121"/>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Bar • Petiscos"
-                            android:textSize="12sp"
-                            android:textColor="#6C757D"/>
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:layout_marginTop="4dp">
+                app:cardElevation="2dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackground">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:padding="12dp">
+                    <View android:layout_width="80dp" android:layout_height="80dp" android:background="#E9ECEF" />
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:layout_marginStart="16dp">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Boteco Central" android:textStyle="bold" android:textSize="18sp" android:textColor="#212121"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Bar • Petiscos" android:textSize="12sp" android:textColor="#6C757D"/>
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginTop="4dp">
                             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="⭐ 4.2" android:textStyle="bold" android:textColor="#FF9800"/>
                             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text=" • 3.0 km" android:textColor="#ADB5BD"/>
                         </LinearLayout>
@@ -204,10 +283,77 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_pizzaria_vignoli"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="2dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackground">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:padding="12dp">
+                    <View android:layout_width="80dp" android:layout_height="80dp" android:background="#E9ECEF" />
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:layout_marginStart="16dp">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Pizzaria Vignoli" android:textStyle="bold" android:textSize="18sp" android:textColor="#212121"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Pizzas • Massas Leves" android:textSize="12sp" android:textColor="#6C757D"/>
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginTop="4dp">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="⭐ 4.6" android:textStyle="bold" android:textColor="#FF9800"/>
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text=" • 2.8 km" android:textColor="#ADB5BD"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_cafe_artes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="2dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackground">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:padding="12dp">
+                    <View android:layout_width="80dp" android:layout_height="80dp" android:background="#E9ECEF" />
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:layout_marginStart="16dp">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Café das Artes" android:textStyle="bold" android:textSize="18sp" android:textColor="#212121"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Cafeteria • Ambiente Calmo" android:textSize="12sp" android:textColor="#6C757D"/>
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginTop="4dp">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="⭐ 4.9" android:textStyle="bold" android:textColor="#FF9800"/>
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text=" • 1.5 km" android:textColor="#ADB5BD"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_fondue_guara"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="32dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="2dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackground">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:padding="12dp">
+                    <View android:layout_width="80dp" android:layout_height="80dp" android:background="#E9ECEF" />
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:layout_marginStart="16dp">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Fondue Guaramiranga" android:textStyle="bold" android:textSize="18sp" android:textColor="#212121"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Jantar • Clima Frio" android:textSize="12sp" android:textColor="#6C757D"/>
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginTop="4dp">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="⭐ 4.8" android:textStyle="bold" android:textColor="#FF9800"/>
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text=" • 95.0 km" android:textColor="#ADB5BD"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
         </LinearLayout>
     </ScrollView>
 
-    <!-- Menu Inferior conforme RNF01 -->
     <LinearLayout
         android:id="@+id/menu_inferior"
         android:layout_width="match_parent"
@@ -223,7 +369,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="Início"
-            android:background="#00000000"
+            android:background="?android:attr/selectableItemBackground"
             android:textColor="#2196F3"
             android:textStyle="bold" />
 
@@ -234,7 +380,7 @@
             android:layout_weight="1"
             android:text="+"
             android:textSize="28sp"
-            android:background="#00000000"
+            android:background="?android:attr/selectableItemBackground"
             android:textColor="#6750A4" />
 
         <Button
@@ -243,7 +389,8 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="Perfil"
-            android:background="#00000000"
+            android:background="?android:attr/selectableItemBackground"
             android:textColor="#495057" />
     </LinearLayout>
+
 </RelativeLayout>

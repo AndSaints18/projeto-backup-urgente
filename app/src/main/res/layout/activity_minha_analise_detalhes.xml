@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:fitsSystemWindows="true"
-    android:background="#F5F5F5">
+    android:background="#F8F9FA">
 
-    <!-- Barra Superior Fixa (Header) -->
     <LinearLayout
+        android:id="@+id/header_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -21,145 +21,193 @@
             android:id="@+id/btn_voltar_minhas_analises"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="←"
-            android:background="#00000000"
-            android:textColor="#2196F3"
+            android:text="← Voltar"
+            android:background="?android:attr/selectableItemBackground"
+            android:textColor="#757575"
             android:textStyle="bold"
             android:textAllCaps="false"/>
-
     </LinearLayout>
 
-    <!-- Área Rolável -->
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_below="@id/header_container"
+        android:clipToPadding="false"
+        android:padding="16dp">
 
-        <!-- animateLayoutChanges cria a animação suave do acordeão! -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:animateLayoutChanges="true"
-            android:padding="16dp">
+            android:animateLayoutChanges="true">
 
-            <!-- Cabeçalho da Análise -->
-            <LinearLayout
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:background="#FFFFFF"
-                android:padding="16dp"
-                android:layout_marginBottom="8dp">
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="2dp">
 
-                <TextView
-                    android:id="@+id/txt_nome_local_analisado"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Nome do Local"
-                    android:textSize="24sp"
-                    android:textStyle="bold"/>
-
-                <TextView
-                    android:id="@+id/txt_minha_nota_final"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Minha Nota: ⭐ 5.0"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:textColor="#FF9800"
-                    android:layout_marginTop="8dp"/>
-            </LinearLayout>
-
-            <!-- ACORDEÃO: Botão de Mostrar/Ocultar -->
-            <TextView
-                android:id="@+id/btn_toggle_notas"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="▼ Ver notas detalhadas"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:textColor="#2196F3"
-                android:padding="12dp"
-                android:background="#E3F2FD"
-                android:gravity="center"
-                android:layout_marginBottom="2dp"/>
-
-            <!-- ACORDEÃO: Conteúdo Oculto por padrão (visibility="gone") -->
-            <LinearLayout
-                android:id="@+id/layout_notas_detalhadas"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:background="#FFFFFF"
-                android:padding="16dp"
-                android:visibility="gone"
-                android:layout_marginBottom="8dp">
-
-                <TextView android:id="@+id/txt_nota_atendimento" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Atendimento: ⭐ 5.0" android:layout_marginBottom="4dp"/>
-                <TextView android:id="@+id/txt_nota_qualidade" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Qualidade: ⭐ 5.0" android:layout_marginBottom="4dp"/>
-                <TextView android:id="@+id/txt_nota_ambiente" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Ambiente: ⭐ 4.0" android:layout_marginBottom="4dp"/>
-                <TextView android:id="@+id/txt_nota_infra" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Infraestrutura: ⭐ 4.0" android:layout_marginBottom="4dp"/>
-                <TextView android:id="@+id/txt_nota_custo" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Custo-Benefício: ⭐ 5.0"/>
-            </LinearLayout>
-
-            <!-- Meu Comentário -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:background="#FFFFFF"
-                android:padding="16dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Meu Comentário"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:layout_marginBottom="8dp"/>
-
-                <TextView
-                    android:id="@+id/txt_meu_comentario"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text='"Comentário mockado aqui."'
-                    android:textSize="15sp"
-                    android:textColor="#424242"
-                    android:textStyle="italic"/>
-            </LinearLayout>
+                    android:orientation="vertical">
 
-            <!-- Minhas Fotos -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:background="#FFFFFF"
-                android:padding="16dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Fotos Enviadas"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:layout_marginBottom="8dp"/>
-
-                <HorizontalScrollView
-                    android:layout_width="match_parent"
-                    android:layout_height="120dp">
                     <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal">
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="20dp">
 
-                        <TextView android:layout_width="120dp" android:layout_height="match_parent" android:text="[ Foto 1 ]" android:gravity="center" android:background="#E0E0E0" android:layout_marginEnd="8dp"/>
-                        <TextView android:layout_width="120dp" android:layout_height="match_parent" android:text="[ Foto 2 ]" android:gravity="center" android:background="#E0E0E0"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Avaliação sobre"
+                            android:textSize="12sp"
+                            android:textColor="#9E9E9E"
+                            android:textAllCaps="true"
+                            android:letterSpacing="0.1"/>
+
+                        <TextView
+                            android:id="@+id/txt_nome_local_analisado"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Nome do Local"
+                            android:textSize="26sp"
+                            android:textColor="#212121"
+                            android:textStyle="bold"/>
+
+                        <TextView
+                            android:id="@+id/txt_minha_nota_final"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Minha Nota: ⭐ 5.0"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:textColor="#FF9800"
+                            android:layout_marginTop="8dp"/>
                     </LinearLayout>
-                </HorizontalScrollView>
-            </LinearLayout>
+
+                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#F1F3F5"/>
+
+                    <TextView
+                        android:id="@+id/btn_toggle_notas"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="▼ Ver notas detalhadas"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:textColor="#2196F3"
+                        android:padding="16dp"
+                        android:background="?android:attr/selectableItemBackground"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:gravity="center"/>
+
+                    <LinearLayout
+                        android:id="@+id/layout_notas_detalhadas"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="20dp"
+                        android:background="#F8FAF9"
+                        android:visibility="gone">
+
+                        <TextView android:id="@+id/txt_nota_atendimento" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Atendimento: ⭐ 5.0" android:textColor="#495057" android:layout_marginBottom="8dp"/>
+                        <TextView android:id="@+id/txt_nota_qualidade" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Qualidade: ⭐ 5.0" android:textColor="#495057" android:layout_marginBottom="8dp"/>
+                        <TextView android:id="@+id/txt_nota_ambiente" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Ambiente: ⭐ 4.0" android:textColor="#495057" android:layout_marginBottom="8dp"/>
+                        <TextView android:id="@+id/txt_nota_infra" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Infraestrutura: ⭐ 4.0" android:textColor="#495057" android:layout_marginBottom="8dp"/>
+                        <TextView android:id="@+id/txt_nota_custo" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Custo-Benefício: ⭐ 5.0" android:textColor="#495057"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="2dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Meu Comentário"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="#212121"
+                        android:layout_marginBottom="12dp"/>
+
+                    <TextView
+                        android:id="@+id/txt_meu_comentario"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text='"Comentário mockado aqui."'
+                        android:textSize="15sp"
+                        android:textColor="#6C757D"
+                        android:lineSpacingExtra="4dp"
+                        android:textStyle="italic"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="32dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="2dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Fotos Enviadas"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="#212121"
+                        android:layout_marginBottom="12dp"/>
+
+                    <HorizontalScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="120dp"
+                        android:scrollbars="none">
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="120dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginEnd="12dp"
+                                app:cardCornerRadius="8dp"
+                                app:cardElevation="0dp">
+                                <TextView android:layout_width="match_parent" android:layout_height="match_parent" android:text="📷 Foto 1" android:gravity="center" android:background="#E9ECEF" android:textColor="#ADB5BD"/>
+                            </androidx.cardview.widget.CardView>
+
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="120dp"
+                                android:layout_height="match_parent"
+                                app:cardCornerRadius="8dp"
+                                app:cardElevation="0dp">
+                                <TextView android:layout_width="match_parent" android:layout_height="match_parent" android:text="📷 Foto 2" android:gravity="center" android:background="#E9ECEF" android:textColor="#ADB5BD"/>
+                            </androidx.cardview.widget.CardView>
+                        </LinearLayout>
+                    </HorizontalScrollView>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
 
         </LinearLayout>
     </ScrollView>
-</LinearLayout>
+</RelativeLayout>

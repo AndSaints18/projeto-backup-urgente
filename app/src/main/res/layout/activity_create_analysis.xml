@@ -6,7 +6,6 @@
     android:fitsSystemWindows="true"
     android:background="#F5F5F5">
 
-    <!-- Título Fixo no Topo -->
     <TextView
         android:id="@+id/titulo_criar"
         android:layout_width="match_parent"
@@ -18,7 +17,6 @@
         android:background="#FFFFFF"
         android:elevation="4dp" />
 
-    <!-- Formulário Rolável -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -26,7 +24,6 @@
         android:layout_above="@+id/menu_inferior"
         android:padding="16dp">
 
-        <!-- animateLayoutChanges cria a animação do acordeão -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -35,19 +32,36 @@
             android:padding="16dp"
             android:animateLayoutChanges="true">
 
-            <!-- Nome do Local -->
-            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Nome do local:" android:textStyle="bold"/>
-            <EditText android:id="@+id/input_nome_local" android:layout_width="match_parent" android:layout_height="50dp" android:inputType="textCapWords" android:layout_marginBottom="16dp"/>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Qual local você visitou?" android:textStyle="bold"/>
+            <AutoCompleteTextView
+                android:id="@+id/input_nome_local"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:inputType="textCapWords"
+                android:hint="Ex: Ama Brownie..."
+                android:completionThreshold="1"
+                android:background="@android:drawable/editbox_background_normal"
+                android:layout_marginBottom="4dp"/>
 
-            <!-- Hora que foi -->
+            <TextView
+                android:id="@+id/btn_sugerir_local"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Não encontrou? Recomende um novo local."
+                android:textColor="#2196F3"
+                android:textStyle="bold"
+                android:paddingTop="4dp"
+                android:paddingBottom="16dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackground"/>
+
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Hora que foi:" android:textStyle="bold"/>
             <EditText android:id="@+id/input_hora" android:layout_width="match_parent" android:layout_height="50dp" android:inputType="time" android:hint="Ex: 19:30" android:layout_marginBottom="24dp"/>
 
-            <!-- Nota Principal (Subimos ela para facilitar a UX!) -->
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Nota Geral do Local:" android:textStyle="bold" android:textSize="18sp" android:textColor="#FF9800"/>
             <RatingBar android:id="@+id/rating_final" android:layout_width="wrap_content" android:layout_height="wrap_content" android:numStars="5" android:stepSize="0.5" android:progressTint="#FF9800" android:layout_marginBottom="16dp"/>
 
-            <!-- ACORDEÃO: Botão de Mostrar/Ocultar Detalhes -->
             <TextView
                 android:id="@+id/btn_toggle_avaliacoes"
                 android:layout_width="match_parent"
@@ -61,7 +75,6 @@
                 android:gravity="center"
                 android:layout_marginBottom="16dp"/>
 
-            <!-- ACORDEÃO: Conteúdo Oculto com as 5 notas detalhadas -->
             <LinearLayout
                 android:id="@+id/layout_avaliacoes_detalhadas"
                 android:layout_width="match_parent"
@@ -86,20 +99,16 @@
                 <RatingBar android:id="@+id/rating_custo" android:layout_width="wrap_content" android:layout_height="wrap_content" android:numStars="5" android:stepSize="1.0" android:scaleX="0.8" android:scaleY="0.8" android:transformPivotX="0dp" android:transformPivotY="0dp" android:layout_marginBottom="16dp"/>
             </LinearLayout>
 
-            <!-- Observações / Comentário -->
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Observações / Comentário (Opcional):" android:textStyle="bold"/>
             <EditText android:id="@+id/input_observacoes" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="100dp" android:inputType="textMultiLine" android:gravity="top|start" android:padding="12dp" android:background="@android:drawable/editbox_background_normal" android:hint="Escreva sua experiência aqui..." android:layout_marginBottom="24dp"/>
 
-            <!-- Botão de Fotos -->
             <Button android:id="@+id/btn_add_fotos" android:layout_width="match_parent" android:layout_height="50dp" android:text="📷 Adicionar Imagens (Opcional)" android:backgroundTint="#6C757D" android:layout_marginBottom="16dp"/>
 
-            <!-- Botão de Salvar -->
             <Button android:id="@+id/btn_salvar_analise" android:layout_width="match_parent" android:layout_height="60dp" android:text="Salvar Análise" android:backgroundTint="#2196F3" android:textSize="16sp" android:textStyle="bold" android:layout_marginBottom="32dp"/>
 
         </LinearLayout>
     </ScrollView>
 
-    <!-- Menu Inferior -->
     <LinearLayout
         android:id="@+id/menu_inferior"
         android:layout_width="match_parent"

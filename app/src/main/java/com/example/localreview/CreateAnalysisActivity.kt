@@ -3,6 +3,8 @@ package com.example.localreview // Mantenha o seu pacote
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.ArrayAdapter
+import android.widget.AutoCompleteTextView
 import android.widget.Button
 import android.widget.EditText
 import android.widget.LinearLayout
@@ -15,12 +17,23 @@ class CreateAnalysisActivity : AppCompatActivity() {
     // Controle do acordeão
     private var isAvaliacaoDetalhadaAberta = false
 
+    // Nossa lista oficial de locais cadastrados
+    private val locaisCadastrados = arrayOf(
+        "Ama Brownie",
+        "Lanchonete da UNIFOR",
+        "Boteco Central",
+        "Pizzaria Vignoli",
+        "Café das Artes",
+        "Fondue Guaramiranga"
+    )
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_analysis)
 
-        // Elementos de entrada
-        val inputNomeLocal = findViewById<EditText>(R.id.input_nome_local)
+        // Elementos de entrada (Nota: Mudei para AutoCompleteTextView!)
+        val inputNomeLocal = findViewById<AutoCompleteTextView>(R.id.input_nome_local)
+        val btnSugerirLocal = findViewById<TextView>(R.id.btn_sugerir_local) // Botão novo
         val inputObservacoes = findViewById<EditText>(R.id.input_observacoes)
         val btnAddFotos = findViewById<Button>(R.id.btn_add_fotos)
         val btnSalvar = findViewById<Button>(R.id.btn_salvar_analise)
@@ -33,6 +46,17 @@ class CreateAnalysisActivity : AppCompatActivity() {
         val btnInicio = findViewById<Button>(R.id.btn_menu_inicio)
         val btnAdd = findViewById<Button>(R.id.btn_menu_add)
         val btnAnalises = findViewById<Button>(R.id.btn_menu_analises)
+
+        // --- LÓGICA DO AUTOCOMPLETE ---
+        // Aqui a gente "ensina" o campo de texto a usar a nossa lista de locais
+        val adapter = ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, locaisCadastrados)
+        inputNomeLocal.setAdapter(adapter)
+
+        // --- LÓGICA DO BOTÃO SUGERIR ---
+        btnSugerirLocal.setOnClickListener {
+            val intent = Intent(this, SugerirLocalActivity::class.java)
+            startActivity(intent)
+        }
 
         // --- LÓGICA DO ACORDEÃO ---
         btnToggleAvaliacoes.setOnClickListener {
@@ -60,7 +84,13 @@ class CreateAnalysisActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            // Ao salvar, vai direto pra aba "Minhas Análises"
+            // A VALIDAÇÃO: Bloqueia se o usuário digitar algo que não está na lista!
+            if (!locaisCadastrados.contains(nomeLocal)) {
+                inputNomeLocal.error = "Por favor, selecione um local válido da lista ou sugira um novo."
+                return@setOnClickListener
+            }
+
+            // Se passou na validação, salva e vai pra aba "Minhas Análises"
             Toast.makeText(this, "Análise salva com sucesso!", Toast.LENGTH_SHORT).show()
             val intent = Intent(this, MinhasAnalisesActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP

@@ -12,6 +12,27 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LocalReview">
         <activity
+            android:name=".SobreActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EnviarDuvidaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AjudaSuporteActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LocaisFavoritosActivity"
+            android:exported="false" />
+        <activity
+            android:name=".TodasAvaliacoesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SugerirLocalActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Recuperacao2Activity"
+            android:exported="false" />
+        <activity
             android:name=".MinhaAnaliseDetalheActivity"
             android:exported="false" />
         <activity
