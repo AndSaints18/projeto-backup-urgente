@@ -24,12 +24,19 @@ class HomeUsuarioActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        // Certifique-se de que o nome do layout aqui está de acordo com o seu arquivo XML (ex: R.layout.home_usuario)
         setContentView(R.layout.activity_home_usuario)
 
+        // --- REFERÊNCIAS DE UI ---
         val btnInicio = findViewById<Button>(R.id.btn_menu_inicio)
         val btnAdd = findViewById<Button>(R.id.btn_menu_add)
         val btnAnalises = findViewById<Button>(R.id.btn_menu_analises)
 
+        // Elementos do toggle de Filtro
+        val btnToggleFiltros = findViewById<TextView>(R.id.btn_toggle_filtros)
+        val filterContainer = findViewById<View>(R.id.filter_container)
+
+        // Cards de locais
         cardAmaBrownie = findViewById(R.id.card_ama_brownie)
         cardLanchonete = findViewById(R.id.card_lanchonete_unifor)
         cardBoteco = findViewById(R.id.card_boteco_central)
@@ -37,6 +44,7 @@ class HomeUsuarioActivity : AppCompatActivity() {
         cardCafe = findViewById(R.id.card_cafe_artes)
         cardFondue = findViewById(R.id.card_fondue_guara)
 
+        // Chips de filtro
         val chipTodos = findViewById<CardView>(R.id.chip_todos)
         val chipDoces = findViewById<CardView>(R.id.chip_doces)
         val chipLanches = findViewById<CardView>(R.id.chip_lanches)
@@ -45,6 +53,7 @@ class HomeUsuarioActivity : AppCompatActivity() {
         val chipCafes = findViewById<CardView>(R.id.chip_cafes)
         val chipExperiencias = findViewById<CardView>(R.id.chip_experiencias)
 
+        // Textos dos chips
         val tvTodos = findViewById<TextView>(R.id.tv_chip_todos)
         val tvDoces = findViewById<TextView>(R.id.tv_chip_doces)
         val tvLanches = findViewById<TextView>(R.id.tv_chip_lanches)
@@ -56,6 +65,20 @@ class HomeUsuarioActivity : AppCompatActivity() {
         listaChips = listOf(chipTodos, chipDoces, chipLanches, chipBares, chipPizzarias, chipCafes, chipExperiencias)
         listaTextos = listOf(tvTodos, tvDoces, tvLanches, tvBares, tvPizzarias, tvCafes, tvExperiencias)
 
+        // --- LÓGICA DE TOGGLE DOS FILTROS ---
+        btnToggleFiltros.setOnClickListener {
+            if (filterContainer.visibility == View.GONE) {
+                // Expandir filtros
+                filterContainer.visibility = View.VISIBLE
+                btnToggleFiltros.text = "Filtros ▴"
+            } else {
+                // Esconder filtros
+                filterContainer.visibility = View.GONE
+                btnToggleFiltros.text = "Filtros ▾"
+            }
+        }
+
+        // --- LISTENERS DE FILTROS ---
         chipTodos.setOnClickListener { filtrarCategoria("Todos", chipTodos, tvTodos) }
         chipDoces.setOnClickListener { filtrarCategoria("Doces", chipDoces, tvDoces) }
         chipLanches.setOnClickListener { filtrarCategoria("Lanches", chipLanches, tvLanches) }
@@ -64,6 +87,7 @@ class HomeUsuarioActivity : AppCompatActivity() {
         chipCafes.setOnClickListener { filtrarCategoria("Cafes", chipCafes, tvCafes) }
         chipExperiencias.setOnClickListener { filtrarCategoria("Experiencias", chipExperiencias, tvExperiencias) }
 
+        // --- LISTENERS DE DETALHES ---
         cardAmaBrownie.setOnClickListener { abrirDetalhes("Ama Brownie") }
         cardLanchonete.setOnClickListener { abrirDetalhes("Lanchonete da UNIFOR") }
         cardBoteco.setOnClickListener { abrirDetalhes("Boteco Central") }
@@ -71,6 +95,7 @@ class HomeUsuarioActivity : AppCompatActivity() {
         cardCafe.setOnClickListener { abrirDetalhes("Café das Artes") }
         cardFondue.setOnClickListener { abrirDetalhes("Fondue Guaramiranga") }
 
+        // --- NAVEGAÇÃO DO MENU INFERIOR ---
         btnInicio.setOnClickListener {
             Toast.makeText(this, "Você já está na tela de Início!", Toast.LENGTH_SHORT).show()
         }
@@ -92,7 +117,6 @@ class HomeUsuarioActivity : AppCompatActivity() {
 
     private fun abrirDetalhes(nomeLocal: String) {
         try {
-            // Mudamos de volta para DetalhesLocalActivity!
             val intent = Intent(this, DetalhesLocalActivity::class.java)
             intent.putExtra("NOME_LOCAL", nomeLocal)
             startActivity(intent)
@@ -103,14 +127,17 @@ class HomeUsuarioActivity : AppCompatActivity() {
     }
 
     private fun filtrarCategoria(categoria: String, chipAtivo: CardView, textoAtivo: TextView) {
+        // Reseta todos os chips para o estado inativo
         for (i in listaChips.indices) {
             listaChips[i].setCardBackgroundColor(Color.parseColor("#F1F3F5"))
             listaTextos[i].setTextColor(Color.parseColor("#495057"))
         }
 
+        // Estiliza o chip clicado como ativo
         chipAtivo.setCardBackgroundColor(Color.parseColor("#212121"))
         textoAtivo.setTextColor(Color.parseColor("#FFFFFF"))
 
+        // Oculta ou mostra os cards baseando-se na categoria escolhida
         cardAmaBrownie.visibility = if (categoria == "Todos" || categoria == "Doces") View.VISIBLE else View.GONE
         cardLanchonete.visibility = if (categoria == "Todos" || categoria == "Lanches") View.VISIBLE else View.GONE
         cardBoteco.visibility = if (categoria == "Todos" || categoria == "Bares") View.VISIBLE else View.GONE

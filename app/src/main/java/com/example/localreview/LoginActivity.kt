@@ -44,8 +44,7 @@ class LoginActivity : AppCompatActivity() {
             // --- LÓGICA DE AUTENTICAÇÃO DIRETA ---
 
             // 1. Rota do Usuário Comum
-            if (emailDigitado == "123" && senhaDigitada == "123") {
-                Toast.makeText(this, "Bem-vindo!", Toast.LENGTH_SHORT).show()
+            if (emailDigitado == "teste@unifor.br" && senhaDigitada == "123") {
                 val intent = Intent(this, HomeUsuarioActivity::class.java)
                 startActivity(intent)
                 finish() // Impede de voltar pra tela de login apertando o botão "Voltar"
